@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlacementPredict Pro</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" href="/static/images/logo.png">
+</head>
+<body>
+  <header style="background-color: var(--dark-purple);">
+    <div class="logo-container">
+      <img src="/static/images/logo.png" alt="Logo" class="logo">
+      <span class="logo-text">PPP</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/predict">Predict</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+    <div class="auth-buttons">
+      <button class="login-btn">Login</button>
+      <button class="signup-btn">Sign Up</button>
+    </div>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer style="background-color: var(--dark-purple);">
+    <div class="footer-links">
+      <a href="/help">Help</a>
+      <a href="/contact">Contact</a>
+      <a href="/settings">Settings</a>
+    </div>
+    <p>© 2023 PlacementPredict Pro</p>
+  </footer>
+  
+  <script src="/static/js/main.js"></script>
+</body>
+</html>

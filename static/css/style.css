@@ -1,0 +1,154 @@
+:root {
+  --dark-purple: #231942;
+  --medium-purple: #5E548E;
+  --light-purple: #9F86C0;
+  --lilac: #BE95C4;
+  --pink: #E0B1CB;
+  --white: #FFFFFF;
+}
+/* Global Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--white);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+  color: var(--white);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0 1rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+.auth-buttons button {
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-btn {
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid var(--white) !important;
+}
+
+.signup-btn {
+  background-color: var(--pink);
+  color: var(--dark-purple);
+}
+
+/* Hero Section */
+.hero {
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta-button {
+  background-color: var(--pink);
+  color: var(--dark-purple);
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Features Section */
+.features {
+  display: flex;
+  justify-content: space-around;
+  padding: 3rem 2rem;
+}
+
+.feature-card {
+  padding: 2rem;
+  border-radius: 10px;
+  width: 25%;
+  text-align: center;
+}
+
+/* Profile Page Styles */
+.profile-container {
+  padding: 2rem;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.profile-header img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 2rem;
+}
+
+.profile-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.detail-card {
+  background-color: var(--white);
+  color: var(--dark-purple);
+  padding: 1.5rem;
+  border-radius: 10px;
+  flex: 1 1 300px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
+  
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .feature-card {
+    width: 80%;
+    margin-bottom: 1rem;
+  }
+}
