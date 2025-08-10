@@ -128,6 +128,8 @@ pip install -r requirements.txt
 # 4. Run the app
 python app.py
 
+
+📂 Project Structure
 CREDHIRE/
 ├── app.py               # Main Flask app
 ├── static/              # CSS, JS, images
