@@ -1,26 +1,28 @@
 {% extends "base.html" %}
-
 {% block content %}
-<section class="hero" style="background-color: var(--medium-purple);">
-  <div class="hero-content">
-    <h1>Job Placement Prediction System</h1>
-    <p>Predict your career success using our AI-powered analysis of 10 years of student data</p>
-    <button class="cta-button">Get Started</button>
-  </div>
-</section>
+<section class="hero">
+  <h1>CREDHIRE</h1>
+  <p class="tagline">AI-Powered Placement Predictions for Diploma Students</p>
+  <p class="lead">Enter class test, final and skill scores across 8 semesters and instantly get a placement probability. Built for students, trainers, and colleges.</p>
 
-<section class="features">
-  <div class="feature-card" style="background-color: var(--light-purple);">
-    <h3>Academic Analysis</h3>
-    <p>Evaluate your course performance</p>
+  <div class="features">
+    <div class="card">
+      <h3>Fast Predictions</h3>
+      <p>Get a quick placement estimate from 32 inputs.</p>
+    </div>
+    <div class="card">
+      <h3>History & Insights</h3>
+      <p>Save predictions to your profile to track progress over time.</p>
+    </div>
+    <div class="card">
+      <h3>Retrainable Model</h3>
+      <p>Retrain locally using your dataset with model_training.py.</p>
+    </div>
   </div>
-  <div class="feature-card" style="background-color: var(--lilac);">
-    <h3>Placement Prediction</h3>
-    <p>Forecast your job prospects</p>
-  </div>
-  <div class="feature-card" style="background-color: var(--pink);">
-    <h3>Skill Recommendations</h3>
-    <p>Personalized improvement plan</p>
+
+  <div class="cta">
+    <a class="btn" href="{{ url_for('register') }}">Get Started — Register</a>
+    <a class="btn outline" href="{{ url_for('predictions') }}">Try a Quick Prediction</a>
   </div>
 </section>
 {% endblock %}

@@ -1,46 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PlacementPredict Pro</title>
-  <link rel="stylesheet" href="/static/css/style.css">
-  <link rel="icon" href="/static/images/logo.png">
+  <meta charset="utf-8">
+  <title>{{ title or "CREDHIRE" }}</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<body>
-  <header style="background-color: var(--dark-purple);">
-    <div class="logo-container">
-      <img src="/static/images/logo.png" alt="Logo" class="logo">
-      <span class="logo-text">PPP</span>
+<body class="site-body">
+  <header class="site-header">
+    <div class="brand">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="CREDHIRE" class="logo">
+      <span class="brand-text">CREDHIRE</span>
     </div>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/predict">Predict</a></li>
-        <li><a href="/dashboard">Dashboard</a></li>
-        <li><a href="/profile">Profile</a></li>
-        <li><a href="/about">About</a></li>
-      </ul>
+    <nav class="nav">
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('predictions') }}">Predict</a>
+      <a href="{{ url_for('history') }}">History</a>
+      <a href="{{ url_for('help_page') }}">Help</a>
+      <a href="{{ url_for('contact') }}">Contact</a>
+      {% if current_user.is_authenticated %}
+        <a href="{{ url_for('profile') }}">Profile</a>
+        <a href="{{ url_for('settings') }}">Settings</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+      {% else %}
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('register') }}">Register</a>
+      {% endif %}
     </nav>
-    <div class="auth-buttons">
-      <button class="login-btn">Login</button>
-      <button class="signup-btn">Sign Up</button>
-    </div>
   </header>
 
-  <main>
+  <main class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flashes">
+        {% for category, msg in messages %}
+          <div class="flash {{ category }}">{{ msg }}</div>
+        {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
     {% block content %}{% endblock %}
   </main>
 
-  <footer style="background-color: var(--dark-purple);">
-    <div class="footer-links">
-      <a href="/help">Help</a>
-      <a href="/contact">Contact</a>
-      <a href="/settings">Settings</a>
-    </div>
-    <p>© 2023 PlacementPredict Pro</p>
+  <footer class="site-footer">
+    <p>© 2025 CREDHIRE — AI-Powered Placement Prediction</p>
   </footer>
-  
-  <script src="/static/js/main.js"></script>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

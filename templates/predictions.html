@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Placement Prediction</h2>
+<div class="prediction-guide">
+    <p><strong>Instructions:</strong></p>
+    <ul>
+        <li>Class Tests: Enter marks out of 30</li>
+        <li>Finals: Enter marks out of 100</li>
+        <li>Skills: Enter once (comma-separated, e.g. "Java,Communication,Problem Solving")</li>
+    </ul>
+</div>
+
+<form method="POST" class="prediction-form">
+    <div class="semester-grid">
+        {% for s in range(1,9) %}
+        <div class="semester-card">
+            <h3>Semester {{ s }}</h3>
+            <div class="form-group">
+                <label>CT1 Score (out of 30)</label>
+                <input type="number" name="ct1_s{{s}}" min="0" max="30" step="0.1" required>
+            </div>
+            <div class="form-group">
+                <label>CT2 Score (out of 30)</label>
+                <input type="number" name="ct2_s{{s}}" min="0" max="30" step="0.1" required>
+            </div>
+            <div class="form-group">
+                <label>Final Exam (out of 100)</label>
+                <input type="number" name="final_s{{s}}" min="0" max="100" step="0.1" required>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="skills-section">
+        <h3>Your Skills</h3>
+        <div class="form-group">
+            <label>All Skills (comma-separated)</label>
+            <input type="text" name="all_skills" placeholder="e.g., Python,Communication,Teamwork" required>
+            <small>Enter all relevant skills once</small>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="predict-button">Predict Placement</button>
+    </div>
+</form>
+
+{% if prediction %}
+<div class="prediction-result">
+    <h3>Prediction Result</h3>
+    <div class="result-card {{ 'placed' if prediction == 'Placed' else 'not-placed' }}">
+        <p class="result-text">Status: <strong>{{ prediction }}</strong class="confidence">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Probability:   <strong>{{ probability }}</strong>%</p>
+        {% if inputs.skills %}
+        <div class="skill-summary">
+            <p>Skills Detected: {{ inputs.skill_count }}</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
+{% endblock %}

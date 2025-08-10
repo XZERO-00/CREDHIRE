@@ -1,17 +1,18 @@
 {% extends "base.html" %}
-
 {% block content %}
-<div class="help-container">
-  <h2 style="color: var(--dark-purple);">Help Center</h2>
-  
-  <div class="faq-section">
-    <h3>Frequently Asked Questions</h3>
-    <!-- FAQ items would go here -->
+<h2>Help & FAQs</h2>
+{% for q,a in faqs %}
+  <div class="faq">
+    <h4>{{ q }}</h4>
+    <p>{{ a }}</p>
   </div>
-  
-  <div class="tutorial-section">
-    <h3>How to Use the System</h3>
-    <!-- Tutorial content would go here -->
-  </div>
-</div>
+{% endfor %}
+<hr>
+<h3>How to use</h3>
+<ol>
+  <li>Register an account.</li>
+  <li>Go to Predict page and enter 32 scores.</li>
+  <li>Submit and view result and confidence.</li>
+  <li>View past predictions on History page.</li>
+</ol>
 {% endblock %}

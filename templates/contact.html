@@ -1,18 +1,11 @@
 {% extends "base.html" %}
-
 {% block content %}
-<div class="contact-container">
-  <h2 style="color: var(--dark-purple);">Contact Us</h2>
-  
-  <div class="contact-form">
-    <form>
-      <!-- Contact form fields would go here -->
-    </form>
-  </div>
-  
-  <div class="contact-info">
-    <p>Email: atharvap.codes@gmail.com</p>
-    <p>Phone: +1 (555) 123-4567</p>
-  </div>
-</div>
+<h2>Contact Us</h2>
+<form method="POST" class="form-card">
+  <label>Name</label><input name="name" required>
+  <label>Email</label><input name="email" type="email" required>
+  <label>Message</label><textarea name="message" rows="5" required></textarea>
+  <button class="btn" type="submit">Send</button>
+</form>
+<p>Or email us at <strong>support@credhire.example</strong></p>
 {% endblock %}

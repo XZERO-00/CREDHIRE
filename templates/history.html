@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Prediction History</h2>
+{% if rows %}
+  <table class="history-table">
+    <thead><tr><th>Date</th><th>Preview</th><th>Result</th><th>Prob</th></tr></thead>
+    <tbody>
+    {% for r in rows %}
+      <tr>
+        <td>{{ r.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+        <td>{{ r.input_data[:80] }}...</td>
+        <td>{{ r.result }}</td>
+        <td>{{ '%.2f'|format(r.probability) }}%</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p>No predictions yet.</p>
+{% endif %}
+{% endblock %}
