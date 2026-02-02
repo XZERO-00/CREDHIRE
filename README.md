@@ -186,13 +186,3 @@ CREDHIRE/
 
 ⭐ Conclusion
 CREDHIRE bridges the gap between education and employability using AI — empowering students with clarity and confidence.
-
----
-
-If you want:
-- GitHub **badges**
-- **Dark / neon theme README**
-- College **project report format**
-- **Landing page HTML**
-
-Just say the word.
